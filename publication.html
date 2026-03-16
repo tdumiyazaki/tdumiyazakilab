@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>東京電機大学　生命科学系　生物制御化学研究室</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MIYAZAKI LAB">
+<meta name="keywords" content="植物ホルモン,天然物化学,大学院,昆虫,コケ,テルペン，terpene,gibberellin,生合成，biosynthesis，進化，plant">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- 自動ナンバリング用のCSS -->
+<style>
+/* 論文セクション用のカウンター設定（論文総数+1から開始して逆順） */
+#link1 {
+    counter-reset: paper-counter 31; /* 論文総数を設定 */
+}
+
+/* 総説セクション用のカウンター設定（総説総数+1から開始して逆順） */
+#link2 {
+    counter-reset: review-counter 9; /* 総説総数を設定 */
+}
+
+/* 受賞セクション用のカウンター設定 */
+#link3 {
+    counter-reset: award-counter 10; /* hr以降の受賞数+1を設定 */
+}
+
+/* 論文リストのナンバリング（新しいものが大きい番号） */
+#link1 li {
+    counter-increment: paper-counter -1; /* -1で逆順カウント */
+    position: relative;
+    padding-left: 40px;
+}
+
+#link1 li::before {
+    content: counter(paper-counter) ". ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+/* 総説リストのナンバリング（新しいものが大きい番号） */
+#link2 li {
+    counter-increment: review-counter -1; /* -1で逆順カウント */
+    position: relative;
+    padding-left: 40px;
+}
+
+#link2 li::before {
+    content: counter(review-counter) ". ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    color: #27ae60;
+    font-size: 16px;
+}
+
+/* 農芸化学奨励賞と植物化学調節学会奨励賞（最初の2つ）はナンバリングなし */
+#link3 li:nth-child(1),
+#link3 li:nth-child(2) {
+    /* ナンバリングなし */
+}
+
+/* その他の受賞のナンバリング（古いものから1になるよう逆順） */
+#link3 li:nth-child(n+4) {
+    counter-increment: award-counter -1;
+    position: relative;
+    padding-left: 40px;
+}
+
+#link3 li:nth-child(n+4)::before {
+    content: counter(award-counter) ". ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    color: #6c757d;
+    font-size: 16px;
+}
+
+/* hr要素の調整 */
+#link3 hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 2px solid #dee2e6;
+}
+
+/* 全リストのデフォルトマーカーを削除 */
+#link1 li,
+#link2 li,
+#link3 li {
+    list-style: none;
+}
+
+/* DOIリンクのスタイル */
+.doi {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.doi:hover {
+    text-decoration: underline;
+}
+
+/* リンクがない部分のホバー効果を無効化 */
+#link1 li a:not(.doi),
+#link2 li a:not(.doi),
+#link3 li a:not(.doi) {
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* 受賞題目部分（.doiクラス）のスタイル調整 */
+#link3 .doi:not([href]),
+#link3 a.doi:not([href]) {
+    font-size: 16px !important; /* 通常のテキストサイズを明示的に指定 */
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+    pointer-events: none;
+    display: inline;
+    margin-top: 0;
+}
+
+/* 実際にリンクがある部分のみホバー効果を適用 */
+#link1 li a[href]:not(.doi),
+#link2 li a[href]:not(.doi),
+#link3 li a[href]:not(.doi) {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#link1 li a[href]:not(.doi):hover,
+#link2 li a[href]:not(.doi):hover,
+#link3 li a[href]:not(.doi):hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* 実際のDOIリンク（href属性がある）のみホバー効果 */
+.doi[href]:hover {
+    text-decoration: underline;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="trigger-point">
+
+<header>
+
+<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="電大生物制御化学研究室"></a></h1>
+
+<address>
+
+</address>
+
+<!--文字サイズ変更ボタン-->
+<div id="f-size">
+<p>文字サイズ</p>
+<ul>
+<li id="f-small"></li>
+<li id="f-large"></li>
+</ul>
+</div>
+
+</header>
+
+</div>
+<!--/#trigger-point-->
+
+<!--開閉ブロック-->
+<div id="menubar">
+
+<nav>
+<ul>
+<li><a href="index.html">ホーム<span>Home</span></a></li>
+<li><a href="research.html">研究について<span>Research</span></a>
+	<ul>
+	<li><a href="research.html#link1">植物と物質の共進化的変遷の解明</a></li>
+	<li><a href="research.html#link2">昆虫と植物の相互作用における生命現象の解明</a></li>
+	<li><a href="research.html#link3">植物イソプレンの機能解明と制御</a></li>
+	<li><a href="research.html#link4">新しい植物ホルモンの探索</a></li>
+	</ul>
+</li>
+<li><a href="publication.html">成果発表<span>Publications</span></a>
+	<ul>
+	<li><a href="publication.html#link1">論文</a></li>
+	<li><a href="publication.html#link2">総説・著書</a></li>
+	<li><a href="publication.html#link3">受賞関連</a></li>
+	</ul>
+</li>
+<li><a href="staff.html">メンバー紹介<span>Members</span></a>
+		<ul>
+	<li><a href="staff.html#link1">メンバー</a></li>
+	<li><a href="staff.html#link2">写真</a></li>
+	</ul></li>	
+<li><a href="recruit.html">興味のある方<span>Contact Me</span></a>
+		<ul>
+	<li><a href="recruit.html#link1">在学生の皆様</a></li>
+	<li><a href="recruit.html#link2">高校生の皆様</a></li>
+	</ul></li>
+<li><a href="access.html">アクセス<span>Access</span></a></li>
+<li><a href="class.html">授業関係<span>Lectures</span></a>
+	<ul>
+	<li><a href="class.html#link1">担当科目</a></li>
+	<li><a href="class.html#link2">講義資料</a></li>
+	<li><a href="class.html#link3">学生の皆様へ</a></li>
+	</ul></li>
+</ul>
+</nav>
+
+</div>
+<!--/#menubar-->
+
+<div id="contents">
+
+<main class="column">
+
+<div class="main-contents">
+	
+<section id="link1" class="blur">
+  <h2><span class="uline">成果発表</span><span class="small">Information</span></h2>
+	
+  <h2 class="c">論文発表<span class="small">Paper</span></h2>
+  
+  <!-- 論文リストを逆順（新しいものが上）に配置 -->
+<li><a>Tetsuya Kawakami, Sho Miyazaki and Hiroshi Kawaide (co-first author)
+<br>Structural diversity of isoprene synthases in mosses from multiple terpenoid synthase lineages
+<br> <i> Journal of Biological Chemistry </i>(2026) </a>
+<a class="doi" href="https://doi.org/">doi:</a></li>
+	
+<li><a> Kaya Makino, Takaki Hinata, Sho Miyazaki and Maki N Inoue
+<br>Olfactory-mediated behavior and host selection in <i>Galleria mellonella</i>
+<br><i>Pest Management Science</i> (2024) </a>
+<a class="doi" href="https://scijournals.onlinelibrary.wiley.com/doi/10.1002/ps.70321">doi/10.1002/ps.70321</a></li>
+	
+  <li><a>Tomonobu Toyomasu,  So Oshikawa,  Ayaka Naoe,  Tomoka Moriya,  Yuto Hasegawa,  Momoko Nakasato,  Yuga Ogawa,  Hiroki Wakabayashi,  Akira Itoh, Yuri Takeda-Kimura,  Sho Miyazaki and Hiroshi Kawaide
+<br>Gibberellin-biosynthetic <i>ent</i>-kaurene synthases in higher plants do not require their non-catalytic domains for the catalysis 
+<br><i>Biochemical Journal</i> (2024) </a>
+<a class="doi" href="https://doi.org/10.1042/BCJ20240162">doi:10.1042/BCJ20240162</a></li>
+          
+<li><a>Sho Miyazaki, Hiroshi Kawaide and Masatoshi Nakajima
+<br>Inactivation Pathway of Diterpenoid Regulator in the Moss <i>Physcomitrium patens</i> 
+<br><i>Journal of  Plant Growth Regulation</i> (2024) </a>
+<a class="doi" href="https://doi.org/10.1007/s00344-024-11301-2">doi:10.1007/s00344-024-11301-2</a></li>
+	
+<li><a>Keisuke Okamoto, Taiki Inoue, Tsunesato Nagano, Sho Miyazaki, Ikuo Takahashi, Tadao Asami, Kazunori Okada, Kazuma Okada, Masatoshi Nakajima 
+<br>Chemical screening of inhibitors specific for MdDOX-Co that cause an apple columnar tree-shape 
+<br><i>Bioscience, Biotechnology, and Biochemistry</i> (2024) </a>
+<a class="doi" href="https://doi.org/10.1093/bbb/zbad142">doi:10.1093/bbb/zbad142</a></li>
+
+ <li><a>Rui Sun, Maiko Okabe, Sho Miyazaki, Toshiaki, Ishida, Kiyoshi Mashiguchi, Keisuke Inoue, Yoshihiro Yoshitake, Shohei Yamaoka, Ryuichi Nishihama, Hiroshi Kawaide, Masatoshi Nakajima, Shinjiro Yamaguchi, Takayuki Kohchi
+<br>Biosynthesis of gibberellin-related compounds modulates far-red light responses in the liverwort <i>Marchantia polymorpha</i>
+<br> <i>Plant Cell  </i>(2023) </a>
+<a class="doi" href="https://doi.org/10.1093/plcell/koad216">doi:10.1093/plcell/koad216</a></li>
+
+<li><a>Tetsuya Kawakami, Sho Miyazaki and Hiroshi Kawaide (責任著者)
+<br>Molecular characterization of a moss isoprene synthase provides insight into its evolution
+<br> <i>FEBS Letters </i>(2023) </a>
+<a class="doi" href="https://doi.org/10.1002/1873-3468.14691">doi:10.1002/1873-3468.14691.</a></li>
+            
+<li><a>Moe Aizawa, Hayate Saito, Takuya Mitazaki, Takara Taketani, Keiichi Noguchi, Sho Miyazaki, Hiroshi Kawaide, Masahiro Natsume
+<br>Production of desmethyl-gregatin A, a possible causative toxin of brown stem rot in adzuki bean, by <i>Phialophora gregata</i> f. sp. adzukicola
+<br> <i>Journal of Pesticide Science</i>(2023) </a>
+<a class="doi" href="https://www.jstage.jst.go.jp/article/jpestics/48/2/48_D22-070/_article/-char/ja/">doi:10.1584/jpestics.D22-070</a></li>
+          
+<li><a>Takuya Hasegawa, Takatoshi Araki, Atsushi Okabe, Yusuke Kato, Atsushi Ooshiro, Sho Miyazaki, Hiroshi Kawaide and Masahiro Natsume
+<br>Contribution of ethyl β‐d‐glucoside, amino acids, and organic acids in tomato root exudates to the chemotaxis of <i>Ralstonia pseudosolanacearum</i>
+<br> <i>Journal of General Plant Pathology</i>(2023) </a>
+<a class="doi" href="https://doi.org/10.1007/s10327-023-01114-8">doi:10.1007/s10327-023-01114-8</a></li>
+	
+<li><a>TShinsaku Ito, Justine Braguy, Jian You Wang, Akiyoshi Yoda, Valentina Fiorilli, Ikuo Takahashi, Muhammad Jamil, Abrar Felemban, Sho Miyazaki, Teresa Mazzarella, Guan-Ting Erica Chen, Akihisa Shinozawa, Aparna Balakrishna, Lamis Berqdar, Chakravarty Rajan, Shawkat Ali, Imran Haider, Yasuyuki Sasaki, Shunsuke Yajima, Kohki Akiyama, Luisa Lanfranco, Matias D. Zurbriggen, Takahito Nomura, Tadao Asami, Salim Al-Babili
+<br>Canonical strigolactones are not the major determinant of tillering but important rhizospheric signals in rice
+<br> <i>Science Advances</i>(2022) </a>
+<a class="doi" href="https://doi.org/10.1126/sciadv.add1278">doi:10.1126/sciadv.add1278</a></li>
+	
+<li><a>Sho Miyazaki, Aoi Endo, Soh Matsui, Makoto Tokuda, Yoko Saikawa　(責任著者)
+<br>Histological and quantitative image analyses of rice gall formed by orange leafhopper <i>Cicadulina bipunctata</i> (Hemiptera: Cicadellidae) 
+<br> <i>Applied Entomology and Zoology</i> (2021) </a>
+<a class="doi" href="https://doi.org/10.1007/s13355-021-00736-8">doi:10.1007/s13355-021-00736-8</a></li>	
+	
+<li><a>Daichi Watanabe, Ikuo Takahashi, Naiyanate Jaroensanti‐Tanaka, Sho Miyazaki, Kai Jiang, Masaru Nakayasu, Masato Wada, Tadao Asami, Masaharu Mizutani, Kazuma Okada, Masatoshi Nakajima
+<br>The apple gene responsible for columnar tree shape reduces the abundance of biologically active gibberellin
+<br> <i>The Plant Journal</i> (2021) </a>
+<a class="doi" href="https://doi.org/10.1111/tpj.15084">doi:10.1111/tpj.15084</a></li>
+	
+<li><a>Sho Miyazaki, Keita Kasahara, Soh Matsui, Makoto Tokuda and Yoko Saikawa (責任著者)
+<br>Orange Leafhopper Cicadulina bipunctata Feeding Induces Gall Formation Nitrogen Dependently and Regulates Gibberellin Signaling 
+<br> <i>Plants</i> (2020) </a>
+<a class="doi" href="https://doi.org/10.3390/plants9101270">doi:10.3390/plants9101270</a></li>	
+        
+<li><a>Lingfeng Mao, Hiroshi Kawaide, Toshiya Higuchi, Meihong Chen, Koji Miyamoto, Yoshiki Hirata, Honoka Kimura, Sho Miyazaki, Miyu Teruya, Kaoru Fujiwara, Keisuke Tomita, Hisakazu Yamane, Ken-ichiro Hayashi, Hideaki Nojiri, Lei Jia, Jie Qiu, Chuyu Ye, Michael P. Timko, Longjiang Fan and Kazunori Okada
+<br>Genomic evidence for convergent evolution of gene clusters for momilactone biosynthesis in land plants
+<br> <i>Proc. Natl. Acad. Sci. USA</i> (2020) </a>
+<a class="doi" href="https://doi.org/10.1073/pnas.1914373117">doi:10.1073/pnas.1914373117</a></li>
+
+	
+<li><a>Sho Miyazaki, Hironosuke Kurisu, Masaya Nakata, Yoko Saikawa
+<br>Identification of a cyanidin-3-O-β-galactoside in gall tissue induced by midges on Japanese beech (Fagus crenata Blume)  
+<br> <i>Bioscience, Biotechnology, and Biochemistry </i> (2020) </a>
+<a class="doi" href="https://doi.org/10.1080/09168451.2019.1698941">doi:10.1080/09168451.2019.1698941</a></li>	
+
+<li><a>Naiyanate Jaroensanti-Tanaka, Sho Miyazaki, Akito Hosoi, Keisuke Tanaka, Shinsaku Ito, Satoshi Iuchi, Takeshi Nakano, Masatomo Kobayashi, Masatoshi Nakajima, Tadao Asami 
+<br>The chemical NJ15 affects hypocotyl elongation and shoot gravitropism via cutin polymerization 
+<br><i>Bioscience, Biotechnology, and Biochemistry</i> (2018) </a>
+<a class="doi" href="https://doi.org/10.1080/09168451.2018.1484278">doi:10.1080/09168451.2018.1484278</a></li>
+	
+	
+<li><a>Sho Miyazaki, Mariho Hara, Shinsaku Ito, Keisuke Tanaka, Tadao Asami, Ken-ichiro Hayashi, Hiroshi Kawaide, Masatoshi Nakajima
+          <br>An ancestral gibberellin in a moss <i>Physcomitrella patens</i>
+          <br> <i>Molecular Plant</i> (2018) </a>
+          <a class="doi" href="https://doi.org/10.1016/j.molp.2018.03.010">doi:/10.1016/j.molp.2018.03.010</a></li>
+
+	<li><a>Sho Miyazaki, Kenji Tomita, Hisakazu Yamane, Masatomo Kobayashi, Tadao Asami, Masatoshi Nakajima
+<br>Characterization of a helminthosporic acid analog that is a selective agonist of gibberellin receptor 
+<br><i>Bioorganic Medicinal Chemistry Letters</i> (2018) </a>
+<a class="doi" href="https://doi.org/10.1016/j.bmcl.2018.06.005">doi:10.1016/j.bmcl.2018.06.005</a></li>
+
+	<li><a>Kenji Tomita, Sho Miyazaki, Kazuo Furihata, Masatoshi Nakajima, Tadao Asami
+<br>Assignment of <sup>1</sup>H‐ and <sup>13</sup>C‐NMR data for four helminthosporol analogs with the bicyclo[3.2.1]oct‐6‐ene framework 
+<br><i>Magnetic Resonance in Chemistry</i> (2018) </a>
+<a class="doi" href="https://doi.org/10.1002/mrc.4761">doi:10.1002/mrc.4761</a></li>
+
+<li><a>Zhongfeng Ye, Kohei Yamazaki, Hiromi Minoda, Koji Miyamoto, Sho Miyazaki, Hiroshi Kawaide, Arata Yajima, Hideaki Nojiri, Hisakazu Yamane, Kazunori Okada
+<br>In planta functions of cytochrome P450 monooxygenase genes in the phytocassane biosynthetic gene cluster on rice chromosome 2 
+<br><i>Bioscience, Biotechnology, and Biochemistry</i> (2018) </a>
+<a class="doi" href="https://doi.org/10.1080/09168451.2017.1398067">doi:10.1080/09168451.2017.1398067</a></li>
+	
+<li><a>Noguchi, C., Miyazaki, S. Kawaide, H., Gotoh, M., Yoshida, Y. Aoyama, Y.
+  <br>Characterization of moss <i>ent</i>-kaurene oxidase (CYP701B1) using a highly purified preparation
+  <br> <i>The Journal of Biochemistry (Tokyo)</i> (2017) </a>
+  <a class="doi" href="https://doi.org/10.1093/jb/mvx063">doi:/10.1093/jb/mvx063</a></li>
+
+	<li><a>Sho Miyazaki, Kai Jiang, Masatomo Kobayashi, Tadao Asami, Masatoshi Nakajim
+<br>Helminthosporic acid functions as an agonist for gibberellin receptor 
+<br><i>Bioscience, Biotechnology, and Biochemistry</i> (2018) </a>
+<a class="doi" href="https://doi.org/10.1080/09168451.2017.1381018">doi:10.1080/09168451.2017.1381018</a></li>	
+
+	
+ <li><a>Kazunori Okada, Hiroshi Kawaide, Koji Miyamoto, Sho Miyazaki, Ryosuke Kainuma, Honoka Kimura, Kaoru Fujiwara, Masahiro Natsume, Hideaki Nojiri, Masatoshi Nakajima, Hisakazu Yamane, Yuki Hatano, Hiroshi Nozaki, Ken-ichiro Hayashi
+  <br>HpDTC1, a Stress-Inducible Bifunctional Diterpene Cyclase Involved in Momilactone Biosynthesis, Functions in Chemical Defence in the Moss <i>Hypnum plumaeforme</i>
+  <br> <i>Scientific Reports</i> (2016) </a>
+  <a class="doi" href="https://doi.org/10.1038/srep25316">doi:/10.1038/srep25316</a></li>
+
+	
+ <li><a>Kai Jiang, Tetsuya Kurimoto, Eun-Kyung Seo, Sho Miyazaki, Masatoshi Nakajima, Hidemitsu Nakamura, Tadao Asami
+  <br>Development of Inhibitors of Salicylic Acid Signaling 
+  <br> <i>Journal of Agricultural and Food Chemistry</i> (2015) </a>
+  <a class="doi" href="https://doi.org/10.1021/acs.jafc.5b01521">10.1021/acs.jafc.5b01521</a></li>
+	
+<li><a>Sho Miyazaki, Honoka Kimura, Masahiro Natsume, Tadao Asami, Ken-Ichiro Hayashi, Hiroshi Kawaide, Masatoshi Nakajima
+          <br>Analysis ot <i>ent</i>-kaurenoic acid by ultra performance liquid chromatography-tandem mass spectrometry
+          <br> <i>Biochemistry and Biophysics Reports</i> (2015) </a>
+          <a class="doi" href="https://doi.org/10.1016/j.bbrep.2015.05.010">doi:/10.1016/j.bbrep.2015.05.010</a></li>
+
+<li><a>Sho Miyazaki, Masatoshi Nakajima, Hiroshi Kawaide
+            <br>Hormonal diterpenoids derived from <i>ent</i>-kaurenoic acid are involved in the blue-light avoidance response of <i>Physcomitrella patens</i>
+            <br> <i>Plant Signaling and Behavior</i> (2015) </a>
+            <a class="doi" href="https://doi.org/10.4161/15592324.2014.989046">doi:/10.4161/15592324.2014.989046</a></li>
+
+
+<li><a>Sho Miyazaki, Hikaru Toyoshima, Masahiro Natsume, Masatoshi Nakajima, Hiroshi Kawaide 
+            <br>Blue-light irradiation up-regulates the <i>ent</i>-kaurene synthase gene and affects the avoidance response of protonemal growth in <i>Physcomitrella patens</i>
+            <br> <i>Planta</i> (2014) </a>
+            <a class="doi" href="https://doi.org/10.1007/s00425-014-2068-4">doi:/10.1007/s00425-014-2068-4</a></li>
+	
+	
+  <li><a>Sho Miyazaki, Takumi Katsumata, Masahiro Natsume, Hiroshi Kawaide
+                  <br>The CYP701B1 of <i>Physcomitrella patens</i> is an <i>ent</i>-kaurene oxidase that resists inhibition by uniconazole-P
+                  <br> <i>FEBS lett.</i> (2011) </a>
+                  <a class="doi" href="https://doi.org/10.1016/j.febslet.2011.04.057">doi:/10.1016/j.febslet.2011.04.057</a></li>
+	
+ <li><a>Ysohinori Sugai, Sho Miyazaki, Shinichiro Mukai, Isamu Yumoto, Masahiro Natsume, Hiroshi Kawaide 
+                  <br>Enzymatic total synthesis of gibberellin A<sub>4</sub> from acetate
+                  <br> <i>Biosci. Biotechnol. Biochem.</i> (2011) </a>
+                  <a class="doi" href="https://doi.org/10.1271/bbb.100733">doi:/10.1271/bbb.100733</a></li>
+                  
+	
+
+ <li><a>Kwang-Wook Ko, Fengqiu Lin, Takumi Katsumata, Yoshinori Sugai, Sho Miyazaki, Hiroshi Kawaide, Kazunori Okada, Hideaki Nojiri, Hisakazu Yamane
+	 <br>Functional Identification of a Rice <i>ent</i>-Kaurene Oxidase, <i>OsKO2</i>, Using the <i>Pichia pastoris</i> Expression System
+                  <br> <i>Biosci. Biotechnol. Biochem.</i> (2008) </a>
+                  <a class="doi" href="https://doi.org/10.1271/bbb.80427">doi:/10.1271/bbb.80427</a></li>	
+	
+	
+</section>
+
+<section id="link2" class="blur">
+  <h2 class="c">著書・総説<span class="small">Review </span></h2>
+
+	<li><a>Sho Miyazaki
+<br>Evolution of Gibberellin Biosynthesis: Insights from Bryophytes to Flowering Plants
+<br> <i>Bioscience, Biotechnology, and Biochemistry</i> (2026) </a>
+<a class="doi" href="https://doi.org/10.1093/bbb/zbag034">doi:/10.1093/bbb/zbag034</a></li>	
+	
+  <li><a>宮崎翔, 川出 洋, 中嶋 正敏
+<br>ジベレリン起源物質の生合成と代謝 <font color="red">(Front Coverに採択されました)</font>
+<br> <i>化学と生物</i> (2025) </a>
+<a class="doi" href="https://katosei.jsbba.or.jp/index.php?scrid=1969">Vol.63 No.5 Page.211-217</a></li>
+	
+	
+	<li><a>宮崎翔
+<br>昆虫による植物成長制御機構の撹乱 
+<br> <i>昆虫と自然</i> (2024) </a>
+<a class="doi" href="http://hokuryukan-ns.co.jp/cms/books/%E6%98%86%E8%99%AB%E3%81%A8%E8%87%AA%E7%84%B6-2024%E5%B9%B4%EF%BC%96%E6%9C%88%E5%8F%B7-%E7%89%B9-%E9%9B%86%E3%83%BB%E3%82%B3%E3%82%B1%E3%81%A8%E6%98%86%E8%99%AB/">雑誌HP</a></li>		
+
+<li><a>宮崎翔
+<br>イネ科植物を用いて虫えい形成誘導物質と植物矮化誘導物質を追う 
+<br> <i>アグリバイオ</i> (2024) </a>
+<a class="doi" href="http://hokuryukan-ns.co.jp/cms/books/%E3%82%A2%E3%82%B0%E3%83%AA%E3%83%90%E3%82%A4%E3%82%AA%E3%80%802024%E5%B9%B43%E6%9C%88%E5%8F%B7/">雑誌HP</a></li>		
+
+<li><a>Masatoshi Nakajima, Sho Miyazaki, Hiroshi Kawaide (co-first author)
+<br>Hormonal Diterpenoids Distinct to Gibberellins Regulate Protonema Differentiation in the Moss <i>Physcomitrium patens </i>
+<br> <i>Plant and Cell Physiology</i> (2020) </a>
+<a class="doi" href="https://doi.org/10.1093/pcp/pcaa129">doi:10.1093/pcp/pcaa129</a></li>	
+
+<li><a>宮崎翔
+<br>ヒメツリガネゴケで機能するジベレリン起源物質の同定 
+<br> <i>化学と生物</i> (2019) </a>
+<a class="doi" href="https://doi.org/10.1271/kagakutoseibutsu.57.72">doi:10.1271/kagakutoseibutsu.57.72</a></li>	
+
+<li><a>Sho Miyazaki, Masatoshi Nakajima, Hiroshi Kawaide
+<br>Assays of Protonemal Growth Responses in <i>Physcomitrella patens</i> Under Blue- and Red-Light Stimuli 
+<br> <i>Methods in molecular biology</i> (2019) </a>
+<a class="doi" href="https://doi.org/10.1007/978-1-4939-9015-3_4">doi:10.1007/978-1-4939-9015-3_4</a></li>	
+	
+<li><a>宮崎翔
+<br>ヒメツリガネゴケの成長制御物質に関する生合成研究 
+<br> <i>植物の生長調節</i> (2019) </a>
+<a class="doi" href="https://www.jstage.jst.go.jp/article/jscrp/54/1/54_17/_article/-char/ja/">雑誌HP</a></li>	
+	
+</section>
+
+<section id="link3" class="blur">
+  <h2 class="c">受賞<span class="small">Award</span></h2>
+  <li><a>日本農芸化学会　農芸化学奨励賞（2024年3月東京） </a><br>
+        &emsp;&nbsp;受賞題目: 植物における新たな生活環制御に関わるテルペノイドの生合成研究</li>
+  
+		<li><a>植物化学調節学会　奨励賞（2018年11月北海道） </a><br>
+        &emsp;&nbsp;受賞題目: ヒメツリガネゴケの成長制御物質に関する生合成研究</li>
+			  
+			    <hr>
+			  
+			  
+	<li><a>TERPNET2025 　Runner up賞(口頭発表)　（2025年8月Brisbane）[共同受賞] </a><br>
+		&emsp;&nbsp;受賞題目: The molecular evolution of isoprene synthases in mosses</li>	
+	
+	<li><a>日本蘚苔類学会54回宮崎日南大会 　優秀発表賞(口頭発表)　（2024年9月宮崎）[共同受賞] </a><br>
+		&emsp;&nbsp;受賞題目: 顕花植物とは異なる進化を遂げた蘚類由来イソプレン合成酵素の進化起源の解明</li>
+		  
+     <li><a>日本農芸化学会関東支部2023年度大会　優秀発表賞(口頭発表)　(2023年8月東京)[共同受賞] </a><br>
+        &emsp;&nbsp;受賞題目: 蘚類ハイゴケ由来のイソプレン合成酵素の同定</li>
+		 
+     <li><a>2日本蘚苔類学会52回山形西川大会　優秀発表賞(口頭発表)　(2023年8月山形)[共同受賞] </a><br>
+        &emsp;&nbsp;受賞題目: 蘚類ハイゴケ由来のイソプレン合成酵素の同定</li>
+		 
+     <li><a>Taiwan-Japan Plant Biology 2017 Presentation award　(2017年11月Taipei) </a><br>
+        &emsp;&nbsp;受賞題目: An ancestral gibberellin biosynthetic pathway in the moss</li>
+		 
+     <li><a>日本蘚苔類学会45回屋久島大会　優秀発表賞(口頭発表)　(2016年8月鹿児島) </a><br>
+        &emsp;&nbsp;受賞題目: ヒメツリガネゴケの生活環で機能するジベレリン様成長制御物質の探索</li>
+		 
+      <li><a>植物化学調節学会第50回大会　ポスタ－賞（2015年10月東京） </a><br>
+        &emsp;&nbsp;受賞題目: ヒメツリガネゴケ原糸体の分化に関与するジベレリン様成長制御物質の解明 </li>
+
+      <li><a>農芸化学会2010年度東京大会　トピックス賞（2010年3月東京）[共同受賞] </a><br>
+        &emsp;&nbsp;受賞題目: 酢酸を原料とした活性型ジベレリンの酵素的全合成</li>
+
+        <li><a>社団法人 日本農芸化学会 欧文誌（Bioscience, Biotechnology and Biochemistry） 2011年BBB論文賞 </a><br></li>
+</section>
+
+</div>
+<!--/.main-contents-->
+
+<div class="sub-contents">
+
+<nav>
+<h3>メニュータイトル</h3>
+<ul class="submenu">
+<li><a href="index.html">ホーム</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="publication.html">Publications</a></li>
+<li><a href="staff.html">Members</a></li>	
+<li><a href="recruit.html">Message</a></li>
+<li><a href="access.html">Access</a></li>
+<li><a href="class.html">Lectures</a></li>
+</ul>
+</nav>
+
+
+</div>
+<!--/.sub-contents-->
+</main>
+
+</div>
+<!--/#contents-->
+
+</div>
+<!--/#container-->
+
+<div id="footer-contents">
+
+<div class="left">
+
+
+<h3>アクセス</h3>
+<p>〒350-0394 埼玉県比企郡鳩山町石坂 東京電機大学　理工学部 12号館　12208B<br></p>
+
+
+</div>
+<!--/.left-->
+
+<div class="right">
+
+</div>
+<!--/.right-->
+
+</div>
+<!--/#footer-contents-->
+
+<!--/#footermenu-->
+
+
+<footer>
+<small>Copyright&copy; <a href="index.html">MIYAZAKI LAB WEB SITE</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</footer>
+
+<!--ページの上部へ戻るボタン-->
+<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+<!--開閉ボタン（ハンバーガーアイコン）-->
+<div id="menubar_hdr">
+<div class="menu-icon">
+<span></span><span></span><span></span>
+</div>
+</div>
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--文字サイズチェンジ用のスクリプト-->
+<script src="js/fontSizeChanger.js"></script>
+
+<!--スライドショー（slick）-->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/slick.js"></script>
+
+<!--パララックス（inview）-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+<script src="js/jquery.inview_set.js"></script>
+
+<!--このテンプレート専用のスクリプト-->
+<script src="js/main.js"></script>
+
+</body>
+</html>

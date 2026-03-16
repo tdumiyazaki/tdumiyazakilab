@@ -1,0 +1,69 @@
+/* メニューバーの表示 */
+body.large-screen #menubar {
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* スライドショーの修正 */
+#mainimg {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+/* スライドショーの画像設定 */
+.slide1 {
+  background: url('images/1.jpg') no-repeat center center / cover !important;
+}
+
+.slide2 {
+  background: url('images/2.jpg') no-repeat center center / cover !important;
+}
+
+.slide3 {
+  background: url('images/3.jpg') no-repeat center center / cover !important;
+}
+
+/* slickが追加するクラスへの対応 */
+.slick-list, .slick-track {
+  height: 100%;
+}
+
+.slick-slide {
+  height: 100%;
+}
+
+/* ドットナビゲーション */
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.slick-dots li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+}
+
+.slick-dots li.slick-active button {
+  background: white;
+}
