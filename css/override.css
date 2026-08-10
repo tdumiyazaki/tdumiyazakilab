@@ -67,3 +67,10 @@ body.large-screen #menubar {
 .slick-dots li.slick-active button {
   background: white;
 }
+
+
+/* 受賞用アイコン（ピンク系） */
+.new .icon-bg2 {
+	background: #e91e63 !important;
+	color: #fff !important;
+}
